@@ -1,85 +1,165 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="icon" href="favicon.ico">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	
 	<script src="https://apis.google.com/js/client.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	
+	<script src="include/js/moment.js"></script>
+	<script src="include/js/moment-timezone-with-data.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="include/css/weather-icons.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<style>
-		img {
-			max-width: 100%;
-			height: auto;      
+		.home_banner {
+			height: 100%;
+			display: block;
+    		margin: auto;
 		}
-		.circle {
-			border-radius: 50%;
-			width: 42px;
-			height: 42px;
-			overflow: hidden;
-			left: 15px;
-			margin-right: 15px;
-			display: inline-block;
-			vertical-align: middle;
+		#twitter-widget-0{
+			width: 100%!important;
+			height: 500px!important;
 		}
 	</style>
-	<div class="container" ng-app="copaMundial" >
-		<div class="card-header">
-			<ul class="nav nav-tabs" role="tablist" id="menu">
-				<li class="nav-item">
-					<a class="nav-link active" data-toggle="tab" id="groups-tab" href="#groups" role="tab">Grupos</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link"  data-toggle="tab" id="venues-tab" href="#venues" role="tab">Estadios</a>
-				</li>
-			</ul>
-		</div>
-		<div class="tab-content" id="myTabContent">
-			<div class="tab-pane fade" ng-controller="venueController" id="venues">
-				<div class="col-md-12">
-					<h1>Estadios</h1>
+	<div class="container" ng-app="copaMundial">
+		<div class="row">
+			<div class="col s12">
+				<ul class="tabs">
+					<li class="tab col s3"><a class="active" href="#home">Rusia 2018</a></li>
+					<li class="tab col s3"><a href="#groups">Grupos</a></li>
+					<li class="tab col s3"><a href="#venues">Estadios</a></li>
+					<li class="tab col s3"><a href="#matches">Partidos</a></li>
+				</ul>
+			</div>
+			<div id="home" class="col s12" ng-controller="homeController">
+				<div class="carousel carousel-slider" style="text-align: center;">
+					<a class="carousel-item" href="#one!"><img src="img/home/logo-2018-FIFA-World-Cup-Russia-banner-1650x580.png" width="auto"></a>
 				</div>
 				<div class="row">
-					<div class="card-columns">
-						<div class="card" ng-repeat="venue in venues">
-							<img class="card-img-top" ng-src="./img/venue/{{$index + 1}}.jpg" alt={{venue.venue}}/>
-							<div class="card-body">
-								<h4 class="card-title">{{venue.venue}}
-								<h6 class="card-subtitle mb-2 text-muted">{{venue.city}}</h6>
-								<p class="card-text">Capacidad: {{venue.capacity}}</p>
-							</div>
-						</div>
+					<div class="col s12 m12">
+						<h3><small>Copa Mundial de la Fifa</small> Rusia 2018</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="row">
+				        <div class="col s12 m6">
+				          	<div class="card large">
+					            <div class="card-image">
+					            	<img src="img/home/inaguration.png">
+					              	<span class="card-title">Ceremonia Inagural</span>
+					              	<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+					            </div>
+					            <div class="card-content">
+					            	<i class="small material-icons">date_range</i>{{inaguration_datetime}} {{inaguration_eta}}
+					              	<blockquote>
+					              		Es un momento muy especial para Rusia, y estamos encantados de poder mostrar a todos los aficionados unas pinceladas de nuestra cultura justo antes de dar paso al f&uacute;tbol
+					              	</blockquote>
+					            </div>
+				          	</div>
+				        </div>
+				        <div class="col s12 m6">
+				          	<div class="card large">
+					            <div class="card-image">
+					            	<img src="img/home/zabivaka.jpg">
+					              	<span class="card-title">Zabivaka - Mascota oficial</span>
+					              	<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+					            </div>
+					            <div class="card-content">
+					              	<p> Zabivaka o "peque&ntilde;o goleador"</p>
+					              	<p>Un lobo divertido, seductor y seguro de s&iacute; mismo ha sido elegido el viernes 21 de octubre por el p&uacute;blico ruso como Mascota Oficial de la Copa Mundial de la FIFA Rusia 2018.</p>
+					              	<blockquote>
+					              		Estoy seguro que Zabivaka ser&aacute; un &eacute;xito masivo entre los aficionados...
+					              	</blockquote>
+					            </div>
+				          	</div>
+				        </div>
+			      	</div>
+			      	<div class="row">
+					<div class="row">
+				        <div class="col s12 m6">
+				          	<div class="card large">
+			      	            <a class="twitter-timeline"  href="https://twitter.com/hashtag/Rusia2018" data-widget-id="946146775517351936">Tweets sobre #Rusia2018</a>
+            					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            				</div>
+            			</div>
+            		</div>          
+			    </div>
+			</div>
+			<div id="groups" class="col s12">
+				<div class="row">
+					<div class="col s12 m6">
+						<h1>Grupos</h1>
+					</div>
+				</div>
+				<div class="row" ng-controller="groupList">
+					<div class="col s12 m3"  ng-repeat="group in groups">
+						<ul class="collection">
+							<li class="collection-header text-center"><h4>Grupo {{group.group}}</h4></li>
+							<li class="collection-item avatar" ng-repeat="group in group.team">
+								<img ng-src="https://img.fifa.com/images/flags/4/{{group.code}}.png" alt="" class="circle">
+								<span class="title">{{group.team}}</span>
+								<p>{{group.group}}</p>
+							  <a href="#!" class="secondary-content"><i class="material-icons">keyboard_arrow_right</i></a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
-			<div class="tab-pane fade show active" role="tabpanel"  ng-controller="groupController" id="groups">
-				<div class="col-md-12">
-					<h1>Grupos</h1>
-				</div>
+			<div id="venues" class="col s12">
 				<div class="row">
-					<div class="card">
-						<div class="card-header">
-							Grupo F
-						</div>
-						<ul class="list-group list-group-flush" ng-repeat="group in groups">
-							<li class="list-group-item"><img class="circle" ng-src="http://img.fifa.com/images/flags/5/{{group.code}}.png" alt={{venue.venue}}/> {{group.team}}</li>
-						</div>
+					<div class="col s12 m6">
+						<h1>Estadios</h1>
 					</div>
-				</div>
+				</div>				
+				<div class="row" ng-controller="venueController">
+					<div class="col s12 m4" ng-repeat="venue in venues">
+					  <div class="card small">
+						<div class="card-image">
+						  <img ng-src="img/venue/{{$index + 1}}.jpg">
+						  <span class="card-title">{{venue.venue}}</span>
+						  <!--a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a-->
+						</div>
+						<div class="card-content">
+							<p>Capacidad: {{venue.capacity | number}}</p>
+							<blockquote ng-controller="stadiumStats">
+								<i ng-class="time_icon"></i> {{clock}} <br>
+								<i ng-class="weather_icon"></i> {{temperature | number}} <i class="wi wi-celsius"></i> <span style="text-transform: capitalize">{{weather_condition}}</span>
+							</blockquote>
+						</div>
+					  </div>
+					</div>
+				  </div>
 			</div>
-		</div>
+			<div id="matches" class="col s12">Test 4</div>
+		  </div>
 	</div>
-	
 	<script>
+		$(document).ready(function() {
+			$('.carousel.carousel-slider').carousel({fullWidth: true});
+			moment.locale('es');
+		});
 		var app = angular.module('copaMundial', []);
-		app.controller('venueController', function($scope, $http, ) {
-			var url = 'http://172.16.1.142/copaMundial/info.php?type=stadium&id=all';
+		app.controller('homeController', function($scope, $interval) {
+			var fechaInaguracion = moment.tz("2018-06-14 16:00:00", "Europe/Moscow");
+			$interval(function () {
+
+				$scope.inaguration_datetime = fechaInaguracion.clone().tz("America/Mexico_City").format('llll z');
+				$scope.inaguration_eta = moment().to(fechaInaguracion);
+			}, 1000);
+		});
+		app.controller('venueController', function($scope, $http, $interval,) {
+			var url = 'https://rmonter-copamundialfutbol.azurewebsites.net/info.php?type=stadium&id=all';
 			$scope.url = url;
 			$http.get(url)
 				.then(function(response) {
@@ -96,8 +176,8 @@
 				});
 		});
 		
-		app.controller('groupController', function($scope, $http, ) {
-			var url = 'http://172.16.1.142/copaMundial/info.php?type=group&group=f';
+		app.controller('groupList', function($scope, $http, ) {
+			var url = 'https://rmonter-copamundialfutbol.azurewebsites.net/info.php?type=group&group=list';
 			$scope.url = url;
 			$http.get(url)
 				.then(function(response) {
@@ -113,7 +193,62 @@
 					console.log("Done");
 				});
 		});
+		
+		app.controller('groupController', function($scope, $http, ) {
+			var url = 'https://rmonter-copamundialfutbol.azurewebsites.net/info.php?type=group&group=f';
+			$scope.url = url;
+			$http.get(url)
+				.then(function(response) {
+					var json = response.data;
+					$scope.jsonResponse = response.data;
+					$scope.groups = [];
+					$scope.groups = json.data;
+				})
+				.catch(function(response) {
+					console.error('Error :', response.status, response.data);
+				})
+				.finally(function() {
+					console.log("Done");
+				});
+		});
+		
+		app.controller('stadiumStats', function($scope, $http, $interval, currentTimeController){
+			$interval(function () {
+				timezone=$scope.venue.timezone;
+				var now = moment.tz(Date.now(), timezone.trim());
+				$scope.clock = now.format('ddd D[,] LT zz');
+				//currentTimeController.getLocalTime($scope.venue.timezone);
+				//console.log($scope.venue.timezone);
+				$scope.time_icon = "wi wi-time-" + moment().tz(timezone.trim()).format('h');
+			}, 1000);
+			city_id = $scope.venue.city_id;
+			var url = "https://rmonter-copamundialfutbol.azurewebsites.net/info.php?type=weather&id=" + city_id;
+			//console.log(url);
+			$http.get(url)
+				.then(function(response) {
+					var json = response.data;
+					$scope.jsonResponse = response.data;
+					$scope.weather = [];
+					$scope.weather = json.data;
+					$scope.temperature = json.data[0].temperature;
+					$scope.weather_condition = json.data[0].description;
+					$scope.weather_icon = "wi wi-" + json.data[0].icon;
+				})
+				.catch(function(response) {
+					console.error('Error :', response.status, response.data);
+				})
+				.finally(function() {
+					console.log("Done");
+				});
+		});
+		
+		app.service('currentTimeController', function(){
+			this.getLocalTime = function ($timezone) {
+				return moment().tz($timezone).format('llll');
+			}
+		});
+		
 	</script>
-
+    </body>
 </body>
 </html>
