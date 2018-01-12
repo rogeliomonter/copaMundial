@@ -128,6 +128,8 @@
 					$error_flag = 1;
 				}	
 				break;
+			case "matches":
+				break;
 		}
 	}
 	if(!$error_flag) {

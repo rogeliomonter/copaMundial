@@ -43,12 +43,12 @@
 				</ul>
 			</div>
 			<div id="home" class="col s12" ng-controller="homeController">
-				<div class="carousel carousel-slider" style="text-align: center;">
-					<a class="carousel-item" href="#one!"><img src="img/home/logo-2018-FIFA-World-Cup-Russia-banner-1650x580.png" width="auto"></a>
+				<div class="carousel carousel-slider">
+					<a class="carousel-item"><img src="img/home/logo-2018-FIFA-World-Cup-Russia-banner-1650x580.png" width="auto"></a>
 				</div>
 				<div class="row">
 					<div class="col s12 m12">
-						<h3><small>Copa Mundial de la Fifa</small> Rusia 2018</h3>
+						<h3 class="center-align"><small>Copa Mundial de la Fifa</small> Rusia 2018</h3>
 					</div>
 				</div>
 				<div class="row">
@@ -85,15 +85,43 @@
 				          	</div>
 				        </div>
 			      	</div>
-			      	<div class="row">
 					<div class="row">
 				        <div class="col s12 m6">
+				          	<div class="card medium">
+				          		<div class="video-container">
+		            		        <iframe width="853" height="480" src="https://www.youtube.com/embed/CrMwSaVvlSY" frameborder="0" allowfullscreen></iframe>
+	            		      	</div>
+	            		      	<div class="card-content center-align">
+				          			<span class="card-title">Copa de Mundo Rusia 2018</span>
+				          		</div>
+	            		    </div>
+	            		</div>
+				        <div class="col s12 m6">
+				          	<div class="card medium">
+				          		<div class="video-container">
+		            		        <iframe width="853" height="480" src="https://www.youtube.com/embed/fTYgpGdvFa4" frameborder="0" allowfullscreen></iframe>
+	            		      	</div>
+				          		<div class="card-content center-align">
+					          		<span class="card-title">Copa del Mundo FIFA</span>
+		            		    </div>
+            		     	</div>
+            		    </div>
+            		</div>
+            		<div class="row">
+            		    <div class="col s12 m6">
 				          	<div class="card large">
 			      	            <a class="twitter-timeline"  href="https://twitter.com/hashtag/Rusia2018" data-widget-id="946146775517351936">Tweets sobre #Rusia2018</a>
             					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             				</div>
             			</div>
-            		</div>          
+            			
+            			<div class="col s12 m6">
+				          	<div class="card large">
+			      	            <span class="card-title"><a class="twitter-timeline" data-height="500" href="https://twitter.com/FIFAcom?ref_src=twsrc%5Etfw">Tweets de FIFA</a></span>
+			      	            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            				</div>
+            			</div>
+            		</div>        
 			    </div>
 			</div>
 			<div id="groups" class="col s12">
@@ -124,13 +152,14 @@
 				</div>				
 				<div class="row" ng-controller="venueController">
 					<div class="col s12 m4" ng-repeat="venue in venues">
-					  <div class="card small">
+					  <div class="card medium">
 						<div class="card-image">
 						  <img ng-src="img/venue/{{$index + 1}}.jpg">
-						  <span class="card-title">{{venue.venue}}</span>
+						  <span class="card-title">{{venue.city}}</span>
 						  <!--a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a-->
 						</div>
 						<div class="card-content">
+							<strong>{{venue.venue}}</strong>
 							<p>Capacidad: {{venue.capacity | number}}</p>
 							<blockquote ng-controller="stadiumStats">
 								<i ng-class="time_icon"></i> {{clock}} <br>
